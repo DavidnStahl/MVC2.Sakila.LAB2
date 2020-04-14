@@ -1,0 +1,33 @@
+﻿@model MVC2.Sakila.Lab2.ViewModels.MovieViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<h3>Title: @Model.movie.Title</h3>
+<h4>Description: @Model.movie.Description</h4>
+<h4>FilmCategory: </h4>
+<ul>
+    @foreach (var category in Model.movie.FilmCategory)
+    {
+        <li>@category.Category.Name</li>
+    }
+</ul>
+<h4>FilmActor:</h4>
+<ul>
+    @foreach (var actor in Model.movie.FilmActor)
+    {
+    <li>@actor.Actor.FirstName @actor.Actor.LastName</li>
+    }
+</ul>
+<h4>Inventory: @Model.movie.Inventory.Count</h4>
+<h4>Release Year @Model.movie.ReleaseYear</h4>
+<h4>Language: @Model.movie.Language.Name</h4>
+<h4>Length: @Model.movie.Length.Value</h4>
+<h4>Rating: @Model.movie.Rating</h4>
+<h4>SpecialFeatures: @Model.movie.SpecialFeatures</h4>
+<h4>RentalRate: @Model.movie.RentalRate</h4>
+<h4>RentalDuration: @Model.movie.RentalDuration</h4>
+<h4>ReplacementCost: @Model.movie.ReplacementCost</h4>
+<h4>LastUpdate: @Model.movie.LastUpdate</h4>
+
+

@@ -1,0 +1,39 @@
+﻿@model MVC2.Sakila.Lab2.ViewModels.MoviesListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1>Movies</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <a asp-controller="Movie" asp-action="Index" asp-route-sortcolumn="title" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                    Title @if (Model.SortOrder == "desc")
+                    {<i class="fa fa-sort-desc" style="font-size:36px"></i>}
+                    else
+                    {<i class="fa fa-sort-asc" style="font-size:36px"></i>}
+                </a>
+            </th>
+            <th scope="col">
+                <a asp-controller="Movie" asp-action="Index" asp-route-sortcolumn="date" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                    Release Date @if (Model.SortOrder == "asc")
+                    {<i class="fa fa-sort-desc" style="font-size:36px"></i>}else {<i class="fa fa-sort-asc" style="font-size:36px"></i> }
+                </a>
+            </th></a></th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.Items)
+        {
+            <tr>
+                <th scope="row">@movie.title</th>
+                <td>@movie.realeaseYear</td>
+                <td><a asp-action="View" asp-route-id="@movie.FilmId">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
