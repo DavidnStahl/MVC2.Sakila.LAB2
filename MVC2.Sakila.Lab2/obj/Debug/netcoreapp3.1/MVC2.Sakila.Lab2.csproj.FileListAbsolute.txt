@@ -141,3 +141,5 @@ C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcorea
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.genruntimeconfig.cache
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Index.cshtml.g.cs
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Movie\View.cshtml.g.cs
+C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Actor\Index.cshtml.g.cs
+C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Actor\View.cshtml.g.cs

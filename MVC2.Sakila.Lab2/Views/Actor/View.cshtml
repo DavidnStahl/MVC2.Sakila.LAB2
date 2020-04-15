@@ -1,0 +1,15 @@
+﻿@model MVC2.Sakila.Lab2.ViewModels.ActorViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<h3>FirstName: @Model.Actor.FirstName</h3>
+<h3>LastName: @Model.Actor.LastName</h3>
+<h4>Movies: </h4>
+<ul>
+    @foreach(var movie in Model.Actor.FilmActor)
+    {
+        <li><a asp-controller="Movie" asp-action="View" asp-route-id="@movie.Film.FilmId">@movie.Film.Title</a></li>
+    }
+</ul>
+

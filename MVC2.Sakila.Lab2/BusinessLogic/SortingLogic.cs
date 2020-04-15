@@ -9,6 +9,32 @@ namespace MVC2.Sakila.Lab2.Services
 {
     public class SortingLogic : ISortingLogic
     {
+        public ActorsListViewModel SortActorList(string sortColumn, string sortOrder, ActorsListViewModel actorList)
+        {
+            if (string.IsNullOrEmpty(sortOrder))
+                sortOrder = "asc";
+
+            if (sortColumn == "firstName")
+            {
+                if (sortOrder == "asc")
+                    actorList.Items = actorList.Items.OrderBy(p => p.FirstName).ToList();
+                else
+                    actorList.Items = actorList.Items.OrderByDescending(p => p.FirstName).ToList();
+            }
+            else
+            {
+                if (sortOrder == "asc")
+                    actorList.Items = actorList.Items.OrderBy(p => p.LastName).ToList();
+                else
+                    actorList.Items = actorList.Items.OrderByDescending(p => p.LastName).ToList();
+
+                sortColumn = "lastName";
+            }
+            actorList.SortColumn = sortColumn;
+            actorList.SortOrder = sortOrder;
+            return actorList;
+        }
+
         public MoviesListViewModel SortMovieList(string sortColumn, string sortOrder, MoviesListViewModel movieList)
         {
             if (string.IsNullOrEmpty(sortOrder))

@@ -10,5 +10,6 @@ namespace MVC2.Sakila.Lab2.Services
     public interface ISortingLogic
     {
         MoviesListViewModel SortMovieList(string sortColumn, string sortOrder, MoviesListViewModel movieList);
+        ActorsListViewModel SortActorList(string sortColumn, string sortOrder, ActorsListViewModel movieList);
     }
 }

@@ -1,0 +1,40 @@
+﻿@model MVC2.Sakila.Lab2.ViewModels.ActorsListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1>Movies</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="firstName" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                    First Name @if (Model.SortOrder == "desc")
+                    {<i class="fa fa-sort-desc" style="font-size:36px"></i>}
+                    else
+                    {<i class="fa fa-sort-asc" style="font-size:36px"></i>}
+                </a>
+            </th>
+            <th scope="col">
+                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="lastName" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                    Last Name @if (Model.SortOrder == "desc")
+                    {<i class="fa fa-sort-desc" style="font-size:36px"></i>}
+                    else
+                    {<i class="fa fa-sort-asc" style="font-size:36px"></i>}
+                </a>
+            </th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var actor in Model.Items)
+        {
+            <tr>
+                <th scope="row">@actor.FirstName</th>
+                <td>@actor.LastName</td>
+                <td><a asp-action="View" asp-route-id="@actor.ActorId">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

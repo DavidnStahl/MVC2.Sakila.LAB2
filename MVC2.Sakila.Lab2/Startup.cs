@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC2.Sakila.Lab2.Data;
 using MVC2.Sakila.Lab2.Models;
 using MVC2.Sakila.Lab2.Services;
 
@@ -30,6 +31,7 @@ namespace MVC2.Sakila.Lab2
                  Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IMovieRepository, MovieRepository>();
+            services.AddTransient<IActorRepository, ActorRepository>();
             services.AddTransient<ISortingLogic, SortingLogic>();
 
             services.AddControllersWithViews();

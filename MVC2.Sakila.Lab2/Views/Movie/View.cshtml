@@ -16,7 +16,7 @@
 <ul>
     @foreach (var actor in Model.movie.FilmActor)
     {
-    <li>@actor.Actor.FirstName @actor.Actor.LastName</li>
+    <li><a a asp-controller="Actor" asp-action="View" asp-route-id="@actor.ActorId">@actor.Actor.FirstName @actor.Actor.LastName</a></li>
     }
 </ul>
 <h4>Inventory: @Model.movie.Inventory.Count</h4>
