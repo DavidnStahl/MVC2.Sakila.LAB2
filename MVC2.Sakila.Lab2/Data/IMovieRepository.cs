@@ -9,7 +9,7 @@ namespace MVC2.Sakila.Lab2.Services
 {
     public interface IMovieRepository
     {
-        MoviesListViewModel GetAllMovies();
+        IQueryable<Film> GetAllMovies();
 
         MovieViewModel GetMovieByID(int id);
     }

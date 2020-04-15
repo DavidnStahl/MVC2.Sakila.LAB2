@@ -133,8 +133,6 @@ C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\bin\Debug\netcorea
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.csproj.CoreCompileInputs.cache
-C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.Views.pdb
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.dll
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.pdb
@@ -143,3 +141,5 @@ C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcorea
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Movie\View.cshtml.g.cs
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Actor\Index.cshtml.g.cs
 C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\Razor\Views\Actor\View.cshtml.g.cs
+C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.csproj.CoreCompileInputs.cache
+C:\Users\dns20\source\repos\MVC2.Sakila.Lab2\MVC2.Sakila.Lab2\obj\Debug\netcoreapp3.1\MVC2.Sakila.Lab2.MvcApplicationPartsAssemblyInfo.cache

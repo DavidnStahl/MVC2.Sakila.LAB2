@@ -1,4 +1,5 @@
-﻿using MVC2.Sakila.Lab2.ViewModels;
+﻿using MVC2.Sakila.Lab2.Models;
+using MVC2.Sakila.Lab2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace MVC2.Sakila.Lab2.Data
 {
     public interface IActorRepository
     {
-        ActorsListViewModel GetAllActors();
+        IQueryable<Actor> GetAllActors();
 
         ActorViewModel GetActorByID(int id);
     }

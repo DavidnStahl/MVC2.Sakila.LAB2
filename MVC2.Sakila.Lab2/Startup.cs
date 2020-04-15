@@ -33,6 +33,14 @@ namespace MVC2.Sakila.Lab2
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<IActorRepository, ActorRepository>();
             services.AddTransient<ISortingLogic, SortingLogic>();
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             services.AddControllersWithViews();
         }
@@ -48,6 +56,8 @@ namespace MVC2.Sakila.Lab2
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();

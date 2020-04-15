@@ -1,15 +1,46 @@
 ﻿@model MVC2.Sakila.Lab2.ViewModels.ActorsListViewModel
 @{
     ViewData["Title"] = "Index";
+    var i = 1;
+    var maxpages = 0;
+    
+    if (Model.PagingViewModel.MaxPages < 10) {
+        maxpages = Model.PagingViewModel.MaxPages;
+    }
+    else if (Model.PagingViewModel.CurrentPage < 10)
+    {
+        maxpages = 9;
+    }
+    else if(Model.PagingViewModel.MaxPages > 9)
+    {
+        i = 10;
+        maxpages = Model.PagingViewModel.MaxPages;
+    }
+    
+
+    
+
+
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>Movies</h1>
+<div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      @Model.PagingViewModel.pageSize actors each page
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" asp-controller="Actor" asp-action="Index" asp-route-pageSize="25">25</a>
+        <a class="dropdown-item" asp-controller="Actor" asp-action="Index" asp-route-pageSize="50">50</a>
+        <a class="dropdown-item" asp-controller="Actor" asp-action="Index" asp-route-pageSize="100">100</a>
+    </div>
+</div>
+
 
 <table class="table">
     <thead>
         <tr>
             <th scope="col">
-                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="firstName" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="FirstName" asp-route-sortorder="@( Model.SortOrder == "asc" ? "desc" : "asc" )">
                     First Name @if (Model.SortOrder == "desc")
                     {<i class="fa fa-sort-desc" style="font-size:36px"></i>}
                     else
@@ -17,7 +48,7 @@
                 </a>
             </th>
             <th scope="col">
-                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="lastName" asp-route-sortorder="@( Model.SortOrder == "asc"  ? "desc" : "asc" )">
+                <a asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="LastName" asp-route-sortorder="@( Model.SortOrder == "asc" ? "desc" : "asc" )">
                     Last Name @if (Model.SortOrder == "desc")
                     {<i class="fa fa-sort-desc" style="font-size:36px"></i>}
                     else
@@ -38,3 +69,68 @@
         }
     </tbody>
 </table>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            @if (Model.PagingViewModel.ShowPrevButton)
+            {
+                <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page="@(Model.PagingViewModel.CurrentPage - 1)">Prev</a>
+
+            }
+        </li>
+        @if (maxpages > 9 && Model.PagingViewModel.CurrentPage > 9)
+        {
+            var h = 9;
+            <li class="page-item">
+                <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page=@h.ToString()>...</a>
+
+            </li>
+        }
+        @for (; i < maxpages + 1; i++)
+        {
+
+            @if (Model.PagingViewModel.CurrentPage == i)
+            {
+                <li class="page-item active">
+                    <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page=@i.ToString()>@i <span class="sr-only">(current)</span></a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page=@i.ToString()>@i</a>
+                </li>
+            }
+
+
+
+
+        }
+        @{
+            var j = maxpages + 1;
+        }
+        @if (j == 10)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page=@j.ToString()>...</a>
+
+            </li>
+        }
+
+        @if (Model.PagingViewModel.MaxPages > 9)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page=@Model.PagingViewModel.MaxPages.ToString()>@Model.PagingViewModel.MaxPages</a>
+
+            </li>
+        }
+
+        <li class="page-item">
+            @if (Model.PagingViewModel.ShowNextButton)
+            {
+                <a class="page-link" asp-controller="Actor" asp-action="Index" asp-route-sortcolumn="@Model.SortColumn" asp-route-sortorder="@Model.SortOrder" asp-route-page="@(Model.PagingViewModel.CurrentPage+1)">Next</a>
+            }
+        </li>
+    </ul>
+</nav>
+

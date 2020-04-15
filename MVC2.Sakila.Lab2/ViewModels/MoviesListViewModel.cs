@@ -9,6 +9,7 @@ namespace MVC2.Sakila.Lab2.ViewModels
     {
         public string SortColumn { get; set; }
         public string SortOrder { get; set; }
+        public PagingViewModel PagingViewModel { get; set; } = new PagingViewModel();
         public List<MovieItemViewModel> Items { get; set; } = new List<MovieItemViewModel>();
         public class MovieItemViewModel
         {

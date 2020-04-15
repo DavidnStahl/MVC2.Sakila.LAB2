@@ -1,41 +1,44 @@
-﻿using MVC2.Sakila.Lab2.ViewModels;
+﻿using MVC2.Sakila.Lab2.Models;
+using MVC2.Sakila.Lab2.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static MVC2.Sakila.Lab2.ViewModels.ActorsListViewModel;
 using static MVC2.Sakila.Lab2.ViewModels.MoviesListViewModel;
 
 namespace MVC2.Sakila.Lab2.Services
 {
     public class SortingLogic : ISortingLogic
     {
-        public ActorsListViewModel SortActorList(string sortColumn, string sortOrder, ActorsListViewModel actorList)
+        public IQueryable<ActorItemViewModel> SortActorList(ref string sortColumn, ref string sortOrder, IQueryable<ActorItemViewModel> items)
         {
+            
             if (string.IsNullOrEmpty(sortOrder))
                 sortOrder = "asc";
 
-            if (sortColumn == "firstName")
+            if (sortColumn == "FirstName")
             {
                 if (sortOrder == "asc")
-                    actorList.Items = actorList.Items.OrderBy(p => p.FirstName).ToList();
+                    items = items.OrderBy(p => p.FirstName);
                 else
-                    actorList.Items = actorList.Items.OrderByDescending(p => p.FirstName).ToList();
+                    items = items.OrderByDescending(p => p.FirstName);
             }
             else
             {
                 if (sortOrder == "asc")
-                    actorList.Items = actorList.Items.OrderBy(p => p.LastName).ToList();
+                    items = items.OrderBy(p => p.LastName);
                 else
-                    actorList.Items = actorList.Items.OrderByDescending(p => p.LastName).ToList();
+                    items = items.OrderByDescending(p => p.LastName);
 
-                sortColumn = "lastName";
+                sortColumn = "LastName";
             }
-            actorList.SortColumn = sortColumn;
-            actorList.SortOrder = sortOrder;
-            return actorList;
+            
+            return items;
         }
 
-        public MoviesListViewModel SortMovieList(string sortColumn, string sortOrder, MoviesListViewModel movieList)
+        public IQueryable<MovieItemViewModel> SortMovieList(ref string sortColumn, ref string sortOrder, IQueryable<MovieItemViewModel> items)
         {
             if (string.IsNullOrEmpty(sortOrder))
                 sortOrder = "asc";
@@ -43,23 +46,23 @@ namespace MVC2.Sakila.Lab2.Services
             if (sortColumn == "date")
             {
                 if (sortOrder == "asc")
-                    movieList.Items = movieList.Items.OrderBy(p => p.realeaseYear).ToList();
+                    items = items.OrderBy(p => p.realeaseYear);
                 else
-                    movieList.Items = movieList.Items.OrderByDescending(p => p.realeaseYear).ToList();
+                    items = items.OrderByDescending(p => p.realeaseYear);
             }
             else
             {
                 if (sortOrder == "asc")
-                    movieList.Items = movieList.Items.OrderBy(p => p.title).ToList();
+                    items = items.OrderBy(p => p.title);
                 else
-                    movieList.Items = movieList.Items.OrderByDescending(p => p.title).ToList();
+                    items = items.OrderByDescending(p => p.title);
 
                 sortColumn = "title";
             }
-            movieList.SortColumn = sortColumn;
-            movieList.SortOrder = sortOrder;
-            return movieList;
+            
+            return items;
             
         }
+        
     }
 }
