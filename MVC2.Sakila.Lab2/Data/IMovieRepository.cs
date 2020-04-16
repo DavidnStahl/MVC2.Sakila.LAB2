@@ -1,4 +1,5 @@
-﻿using MVC2.Sakila.Lab2.Models;
+﻿using Microsoft.AspNetCore.Http;
+using MVC2.Sakila.Lab2.Models;
 using MVC2.Sakila.Lab2.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,6 @@ namespace MVC2.Sakila.Lab2.Services
     {
         IQueryable<Film> GetAllMovies();
 
-        MovieViewModel GetMovieByID(int id);
+        MovieViewModel GetMovieByID(int id, HttpContext httpContext);
     }
 }

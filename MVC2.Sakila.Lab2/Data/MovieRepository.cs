@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using MVC2.Sakila.Lab2.Models;
 using MVC2.Sakila.Lab2.ViewModels;
 using System;
@@ -23,7 +24,7 @@ namespace MVC2.Sakila.Lab2.Services
             
         }
 
-        public MovieViewModel GetMovieByID(int id)
+        public MovieViewModel GetMovieByID(int id,HttpContext httpContext)
         {
                 var viewModel = new MovieViewModel();
                 viewModel.movie = _context.Film

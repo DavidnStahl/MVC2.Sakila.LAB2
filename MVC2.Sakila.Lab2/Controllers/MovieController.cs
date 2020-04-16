@@ -70,7 +70,7 @@ namespace MVC2.Sakila.Lab2.Controllers
         }
         public IActionResult View(int id)
         {
-            var viewModel = _repository.GetMovieByID(id);
+            var viewModel = _repository.GetMovieByID(id,HttpContext);
             return View(viewModel);
         }
         

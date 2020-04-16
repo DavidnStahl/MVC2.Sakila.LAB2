@@ -30,14 +30,19 @@ namespace MVC2.Sakila.Lab2
                  options.UseSqlServer(
                  Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDistributedMemoryCache();
+            services.AddHttpContextAccessor();
             services.AddTransient<IMovieRepository, MovieRepository>();
+            services.Decorate<IMovieRepository, CachedMovieRepository>();
             services.AddTransient<IActorRepository, ActorRepository>();
             services.AddTransient<ISortingLogic, SortingLogic>();
             services.AddDistributedMemoryCache();
 
+            
+
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromDays(1);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
@@ -56,7 +61,7 @@ namespace MVC2.Sakila.Lab2
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            
             app.UseSession();
             app.UseStaticFiles();
 
